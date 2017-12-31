@@ -1,77 +1,84 @@
 import React , {Component} from 'react';
-import { View , Text } from 'react-native';
+import { View , Text , Dimensions} from 'react-native';
 import styles from './style';
-import {MapComponent} from '../components/MapContainer';
+import { MapComponent } from '../components/MapContainer';
+import { MapView } from 'expo';
+// import MapView from 'react-native-maps';
 
+const {width , height} = Dimensions.get('window');
 
+const SCREEN_WIDTH = width;
+const SCREEN_HEIGHT = height;
+const ASPECT_RATIO = width/height;
 
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = 0.0421;
-
-
 
 
 export default class Main extends Component{
   constructor(props){
     super(props);
     this.state={
-      Region:{
-        latitude: 0,
-        longitude: 0,
-        latitudeDelta: 0,
-        longitudeDelta: 0,
+      mapRegion:{
+        latitude:40.1792,
+        longitude:44.4991,
+        longitudeDelta:LONGITUDE_DELTA,
+        latitudeDelta:LATITUDE_DELTA,
       },
-      markerPosition: {
-        latitude:0,
-        longitude:0,
-      },
-    };
+      markers: [{
+          key:1,
+          title: 'superman',
+          description: "ready for fight",
+          coordinates: {
+            latitude: 40.1792,
+            longitude: 44.4991
+          },
+        },
+        {
+          key:2,
+          title: 'batman',
+          description: "wants fight",
+          coordinates: {
+            latitude: 40.200,
+            longitude: 44.4992
+          },
+        }]
+    }
+    this._onRegionChange=this._onRegionChange.bind(this);
   }
 
-watchID: ?number = null ;
-
-componentDidMount(){
-//   navigator.geolocation.getCurrentPosition((position)=>{
-//     var lat = parseFloat(position.coords.latitude);
-//     var long = parseFloat(position.coords.longitude);
-//     var initialRegion = {
-//       latitude: lat,
-//       longitude: long,
-//       latitudeDelta: LATITUDE_DELTA,
-//       longitudeDelta: LONGITUDE_DELTA,
-//     };
-//     this.setState({Region: initialRegion});
-//     this.setState({markerPosition: initialRegion});
-//   },
-//   (error) => alert(JSON.stringify(error)),
-//   {enableHighAccuracy: true ,timeout:20000 , maximumAge:1000}
-// );
-
-  // this.watchID = navigator.geolocation.watchPosition((position)=>{
-  //   var lat = parseFloat(position.coords.latitude);
-  //   var long = parseFloat(position.coords.longitude);
-  //   var lastRegion = {
-  //     latitude:lat,
-  //     longitude:long,
-  //     latitudeDelta: LATITUDE_DELTA,
-  //     longitudeDelta: LONGITUDE_DELTA,
-  //   };
-  //   this.setState({Region: lastRegion});
-  //   this.setState({markerPosition: lastRegion});
-  // });
+_onRegionChange(region){
+  this.setState(()=>({
+    mapRegion: region
+  }));
 }
 
 componentWillUnmount(){
-  // navigator.geolocation.clearWatch(this.watchID);
+
 }
-
-
 
   render(){
     return(
-      <View style={styles.container}>
-         <MapComponent region={this.state.Region}/>
-      </View>
+      <MapView
+        style={{ flex: 1 }}
+        showsUserLocation={true}
+        followUserLocation={true}
+        zoomEnabled={true}
+        provider={MapView.PROVIDER_GOOGLE}
+        region={this.state.mapRegion}
+        onRegionChange={this._onRegionChange}
+      >
+        {this.state.markers.map((marker) => (
+          <MapView.Marker
+            coordinate={marker.coordinates}
+            key={marker.key}
+            title={marker.title}
+            description={marker.description}
+          />
+        ),
+
+      )}
+      </MapView>
     );
   }
 
