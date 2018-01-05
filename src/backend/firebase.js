@@ -8,4 +8,5 @@ var config = {
     storageBucket: "",
     messagingSenderId: "689165223615"
   };
-  firebase.initializeApp(config);
+const FB = firebase.initializeApp(config);
+export default FB;

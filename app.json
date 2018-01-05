@@ -1,6 +1,10 @@
 {
   "expo": {
     "sdkVersion": "23.0.0",
+    "name": "CityBugs",
+    "slug": "city-bugs",
+    "privacy": "public",
+    "facebookScheme": "fb1536466276446364",
     "splash": {
     "image": "./assets/splash.png",
     "resizeMode": "cover"
