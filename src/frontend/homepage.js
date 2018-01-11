@@ -26,7 +26,7 @@ export default class Homepage extends Component {
       <Image source = {require('../img/cb.jpeg')} style = {styles.cityBugLOGO} />
 
       <TouchableHighlight onPress = {this.logIn.bind(this)} style = {styles.facebookLOGO} >
-      <Image source = {require('../img/fbLOGO.jpeg')} />
+        <Image source = {require('../img/fbLOGO.jpeg')} />
       </TouchableHighlight>
 
       <Image source = {require('../img/city.jpeg')} style = {styles.citybugIMAGE} />
