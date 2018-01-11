@@ -7,8 +7,17 @@ import Homepage from './src/frontend/homepage';
 
 const App = StackNavigator({
   Main:{
-    screen: Homepage
+    screen: Homepage,
+    navigationOptions:{
+      headerStyle:{
+        backgroundColor:"#fdfdfd",
+
+      },
+    },
   },
+},
+{
+  //empty
 });
 
 export default App ;
