@@ -100,7 +100,6 @@ _currentLocation(){
 componentDidMount(){
   this._currentLocation();
 }
-
   render(){
     // console.log(this.state.currentLocation);
     return(
