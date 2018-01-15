@@ -6,9 +6,24 @@ import Homepage from './src/frontend/homepage';
 
 
 const App = StackNavigator({
-  Main:{
-    screen: Homepage
+  Language:{
+    screen: Homepage,
+    navigationOptions:{
+      headerStyle:{
+        backgroundColor:"#fdfdfd",
+        borderBottomWidth:0,
+        elevation:0,
+        shadowOpacity:0,
+      },
+    },
   },
+  Main:{
+    screen: Main
+  },
+},
+{
+  //empty
+
 });
 
 export default App ;
