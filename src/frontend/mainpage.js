@@ -10,13 +10,14 @@
     tabBarOptions: {
       indicatorStyle: {
           backgroundColor: 'white',
+          marginBottom: '3%',
+          height: '1%',
       },
       style: {
         backgroundColor: '#26e460',
         padding: 8,
-      },
-      tabStyle: {
-        padding: 3,
+        marginRight: '4%',
+        marginLeft:  '4%',
       },
     },
   });
