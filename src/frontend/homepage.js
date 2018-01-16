@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight,TouchableOpacity,Animated} from 'react-native';
+import { View,
+          Text,
+          Image,
+          TouchableHighlight,
+          TouchableOpacity,
+          Animated} from 'react-native';
 import styles from './style';
 import FB from '../backend/firebase.js';
 import * as firebase from 'firebase';
@@ -12,13 +17,6 @@ import {
   Right,
 } from 'native-base';
 import {MaterialIcons} from '@expo/vector-icons';
-
-
-
-
-
-
-
 
 function ChangeLanguage(props){
   console.log("Language: "+props.Language);
@@ -125,6 +123,7 @@ export default class Homepage extends Component {
            <Body
              style={{marginTop:100}}>
              <TouchableHighlight
+                underlayColor = {'transparent'}s
                 onPress={this.logIn.bind(this)}
                  >
                <Image

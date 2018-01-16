@@ -3,12 +3,12 @@
             Text,
           } from 'react-native';
 
-  export default class List extends Component {
+  export default class Map extends Component {
     render() {
       return (
         <View>
           <Text>
-            List page
+            Map page
           </Text>
         </View>
       );

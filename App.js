@@ -3,9 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Main from './src/frontend/main';
 import Homepage from './src/frontend/homepage';
+import Mainpage from './src/frontend/mainpage';
 
 
-const App = StackNavigator({
+/*const App = StackNavigator({
   Language:{
     screen: Homepage,
     navigationOptions:{
@@ -24,6 +25,14 @@ const App = StackNavigator({
 {
   //empty
 
+});*/
+
+const App = StackNavigator({
+  Home: {
+    screen: Mainpage,
+  },
 });
+
+
 
 export default App ;
