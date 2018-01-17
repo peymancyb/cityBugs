@@ -31,6 +31,12 @@ const App = StackNavigator({
   Home: {
     screen: Mainpage,
   },
+},
+  {
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
 });
 
 
