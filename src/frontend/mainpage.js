@@ -18,6 +18,7 @@
         padding: 8,
         marginRight: '4%',
         marginLeft:  '4%',
+        height: '10%',
       },
     },
   });
