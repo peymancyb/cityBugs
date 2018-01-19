@@ -6,7 +6,7 @@ import Homepage from './src/frontend/homepage';
 import Mainpage from './src/frontend/mainpage';
 
 
-/*const App = StackNavigator({
+const App = StackNavigator({
   Language:{
     screen: Homepage,
     navigationOptions:{
@@ -18,27 +18,18 @@ import Mainpage from './src/frontend/mainpage';
       },
     },
   },
-  Main:{
-    screen: Main
-  },
-},
-{
-  //empty
-
-});*/
-
-const App = StackNavigator({
   Home: {
     screen: Mainpage,
+  },
+  Main:{
+    screen: Main
   },
 },
   {
   headerMode: 'none',
   navigationOptions: {
-    headerVisible: false,
+  headerVisible: false,
   }
 });
-
-
 
 export default App ;

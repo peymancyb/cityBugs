@@ -16,6 +16,7 @@ import {
   Left,
   Right,
 } from 'native-base';
+import { StackNavigator } from 'react-navigation'
 import {MaterialIcons} from '@expo/vector-icons';
 
 function ChangeLanguage(props){
@@ -60,6 +61,7 @@ export default class Homepage extends Component {
 
 //Facebook login
   async logIn() {
+    const { navigate } = this.props.navigation;
     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('1536466276446364', {
       permissions: ['public_profile', 'email'],
       });
@@ -67,7 +69,8 @@ export default class Homepage extends Component {
         const credential = firebase.auth.FacebookAuthProvider.credential(token);
         firebase.auth().signInWithCredential(credential).catch(error => {
           console.log(error);
-        })
+        });
+        navigate('Home');
       }
     }
 
